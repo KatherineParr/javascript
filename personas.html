@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="personas.css">
+    <script src="personas.js"></script>
+    <script src="funciones.js"></script>
+    <script src="funcionesDOM.js" defer></script>
+</head>
+
+<body>
+    <h1>Ejercicios DOM</h1>
+    <nav>
+        <button onclick="limpiarPanel()">Limpiar</button>
+        <button onclick="mostrarNombres(PERSONAS)">Mostrar nombres</button>
+        <button onclick="mostrarListadoPersonas(PERSONAS)">Mostrar Todos</button>
+    </nav>
+    <div id="formularioPersona">
+        <p>
+            <label for="">Nombre: </label>
+            <input type="text" name="nombre" id="">
+        </p>
+        <p>
+            <label for="">Edad: </label>
+            <input type="number" name="edad" id="" min="18">
+        </p>
+        <p>
+            <label for="">Estudios: </label>
+            <input type="text" name="estudios" id="">
+        </p>
+        <p>
+            <label for="">Intereses: </label>
+            <input type="text" name="intereses" placeholder="indica los intereses separados por coma...">
+        </p>
+        <p>
+            <button onclick="crearPersona()">Crear</button>
+        </p>
+    </div>
+    <div>
+        Edad mínima:
+        <input type="number" name="minima" id="">
+        máxima:
+        <input type="number" name="maxima" id="">
+        <button onclick="filtrarEdad()">Filtrar</button>
+    </div>
+    <div id="personas">
+        <div class="persona">
+            <h2>Juan (30)</h2>
+            <p>Medicina</p>
+            <ul>
+                <li>Salud</li>
+                <li>Deportes</li>
+                <li>Tecnología</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        console.log('buscarPersonaPorId(PERSONAS, 21325)');
+        console.log(buscarPersonaPorId(PERSONAS, 21325));
+
+        console.log('filtrarPersonasPorEstudios(PERSONAS, "Ciencias de la Computación")');
+        console.log(filtrarPersonasPorEstudios(PERSONAS, "Ciencias de la Computación"));
+
+        console.log('filtrarPersonasPorEdad(PERSONAS, 35,40)');
+        console.log(filtrarPersonasPorEdad(PERSONAS, 35, 40));
+
+        console.log('filtrarPersonaPorInteres(PERSONAS, "Salud")');
+        console.log(filtrarPersonaPorInteres(PERSONAS, "Salud"));
+
+        console.log('nombres(PERSONAS)');
+        console.log(nombres(PERSONAS));
+
+        console.log('mediaEdad(PERSONAS)');
+        console.log(mediaEdad(PERSONAS));
+
+        console.log('intereses(PERSONAS)');
+        console.log(intereses(PERSONAS));
+
+        console.log('insertarPersona(PERSONAS, 43034, "Pepe", 65, "Ciencias de la Computación", ["Programación", "Tecnología", "Natación"])');
+        insertarPersona(PERSONAS, 43034, "Pepe", 65, "Ciencias de la Computación", ["Programación", "Tecnología", "Natación"]);
+        console.log('buscarPersonaPorId(PERSONAS, 43034)');
+        console.log(buscarPersonaPorId(PERSONAS, 43034));
+        console.log(nombres(PERSONAS));
+        
+        console.log('eliminarPersona(PERSONAS, 56136); // Elimina a Carlos');
+        eliminarPersona(PERSONAS, 56136); // Elimina a Carlos.
+        console.log('nombres(PERSONAS)');  // No debe aparecer Carlos. 
+        console.log(nombres(PERSONAS));  // No debe aparecer Carlos.
+
+    </script>
+</body>
+
+</html>

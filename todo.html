@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <style>
+         .selected {
+            background-color: lightyellow;
+         }
+    </style>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+
+    <p>
+        <button onclick="sortTask()">Ordenb alfabeticamente</button>
+        <button onclick="setSelected()">seleccionar todo</button>
+        <button onclick="setSelected(false)">deseleccionar todo</button>
+        <button onclick="deleteSelected()">borrar todas las seleccionadas</button>
+    </p>
+
+    <p>
+        Nueva tarea:
+        <input type="text" name="" id="new-task" value = "algo">
+        <button onclick="buttonInsertTask()">Crear</button>
+    </p>
+    <ul id="todo-list">
+        <li ondblclick="deleteTask(this)" class="selected">hacer cuestionarios</li>
+        <li ondblclick="deleteTask(this)" onclick="this.classList.toggle('selected')">preparar js</li>
+    </ul>
+</body>
+</html>

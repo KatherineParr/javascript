@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            background-color: black;
+            padding: 5px;
+            display: flex;
+        }
+
+        .block {
+            width: 15px;
+            height: 30px;
+            background-color: aqua;
+            cursor: pointer;
+            border: 1px solid white;
+            padding: 5px;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+    </style>
+    <script src="juego-bloques.js" defer></script>
+</head>
+<body>
+    <h1>Juego bloques</h1>
+    <p>
+        <input type="number" id="block-number" min="10" max="50">
+        <button onclick="createBlocks()">Crear</button>
+    </p>
+    <div id="container">
+    </div>
+
+</body>
+</html>

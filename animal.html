@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica DOM: El Mundo Animal</title>
+    <link rel="stylesheet" href="animal.css">
+</head>
+<body>
+
+    <header>
+        <h1 id="main-title">Enciclopedia Animal 🦁</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link">Mamíferos</a></li>
+                <li><a href="#" class="nav-link">Aves</a></li>
+                <li><a href="#" class="nav-link" id="special-link">Reptiles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="mammals" class="category">
+            <h2 class="category-title">Mamíferos</h2>
+            <div class="card-container">
+                <article class="card" data-animal-type="land">
+                    <h3>León</h3>
+                    <p>El rey de la selva. Un felino carnívoro de gran tamaño.</p>
+                    <ul class="features">
+                        <li class="feature-item">Gran melena</li>
+                        <li class="feature-item">Garras afiladas</li>
+                        <li class="feature-item important">Cazador social</li>
+                    </ul>
+                </article>
+                <article class="card" data-animal-type="sea">
+                    <h3>Delfín</h3>
+                    <p>Mamífero marino conocido por su inteligencia y sociabilidad.</p>
+                    <ul class="features">
+                        <li class="feature-item">Piel lisa</li>
+                        <li class="feature-item important">Ecolocalización</li>
+                        <li class="feature-item">Muy juguetón</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="birds" class="category">
+            <h2 class="category-title">Aves</h2>
+            <div class="card-container">
+                <article class="card" data-animal-type="air">
+                    <h3>Águila</h3>
+                    <p>Ave rapaz con una vista excepcional y garras poderosas.</p>
+                    <ul class="features">
+                        <li class="feature-item important">Vista aguda</li>
+                        <li class="feature-item">Pico ganchudo</li>
+                        <li class="feature-item">Vuelo majestuoso</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        
+        <aside id="sidebar">
+            <h4>Datos curiosos</h4>
+            <p>Algunos reptiles, como las tortugas, pueden vivir más de 100 años.</p>
+            <a href="#" id="more-info-link">Saber más...</a>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Enciclopedia Animal. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="animal.js"></script>
+</body>
+</html>

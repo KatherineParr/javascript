@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            gap: 10px;
+        }
+
+        #listOrigin {
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        #listDestiny {
+            background-color: aquamarine;
+            padding: 20px;
+
+        }
+
+        .selected {
+            font-weight: bold;
+            background-color: darkblue;
+            color: white;
+        }
+    </style>
+    <script src="dos-listados.js" defer></script>
+</head>
+
+<body>
+    <h1>dOS LISTADOS</h1>
+    <P>CREA DOS LISTADOS EL PRIMERO TIENE UNA LISTA DE ELEMENTOS SE PUEDE SELECIONART AL HACER CLICK PULSANDO EL BOTON
+        PASAN LOS SELECCIONADO
+        AL OTRO LISTADO
+    </P>
+    <div id="container">
+        <ul id="listOrigin">
+            <li>Elemento numero1</li>
+            <li>Elemento numero2</li>
+            <li>Elemento numero3</li>
+            <li>Elemento numero4</li>
+            <li>Elemento numero5</li>
+            <li>Elemento numero6</li>
+            <li>Elemento numero7</li>
+            <li>Elemento numero8</li>
+            <li>Elemento numero9</li>
+            <li>Elemento numero10</li>
+            <!--hacer li{elemento numero $}*20 hace que automaticamente escriba los elementos con el nombre dentro de {} y $ es tipo indice numeral-->
+        </ul>
+        <ul id="listDestiny"></ul>
+    </div>
+    <p>
+        <button onclick="changeElementL()"> &lt;-</button>
+        pasar elementos
+        <button onclick="changeElementR()"> -&gt;</button>
+    </p>
+    
+</body>
+
+</html>

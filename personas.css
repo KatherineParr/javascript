@@ -1,0 +1,39 @@
+div#personas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.persona {
+    border: 1px solid blue;
+    background-color: lightblue;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 4px gray;
+    width: 200px;
+}
+
+div#formularioPersona {
+    background-color: lightgray;
+    margin: 5px 20px;
+    padding: 5px 10px;
+}
+
+div#formularioPersona p {
+    margin: 0 10px;
+}
+
+div#formularioPersona label {
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+div#formularioPersona input {
+    width: 300px;
+}
+
+div#formularioPersona button {
+    width: 310px;
+    margin-left: 100px;
+}

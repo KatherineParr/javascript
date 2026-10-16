@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EJ 1</h1>
+    <script>
+        //para una funcion, primero se declara la funcion, 
+        //luego se llama a la funcion y se le pasa un argumento, 
+        //en este caso una variable de tipo string, que es el 
+        //nombre que se quiere saludar.
+
+        function saludar(nombre) {
+            return "Hola, " + nombre + "!";
+        }
+
+        //y luego le decimos a la funcion que nos devuelva el resultado de la 
+        //funcion saludar, y le pasamos como argumento el nombre que queremos saludar, 
+        //en este caso "Juan".
+
+        console.log(saludar("Juan"));
+
+
+        //si queremos que pida un nombre por teclado, asignando ese nombre a una 
+        // variable, podemos usar la funcion prompt, que es leer por teclado
+        // usando let para declarar la variable, y luego le pasamos esa 
+        // variable como argumento a la funcion saludar. <3
+
+
+        // let nombre = prompt("Ingrese su nombre: ");
+
+        // console.log(saludar(nombre));
+    </script>
+
+    <h1>EJ 2</h1>
+    <script>
+        //funcion con dos numeros de argumento, que devuelve la suma de esos dos numeros.
+
+        function sumar(num1, num2) {
+            return num1 + num2;
+        }
+
+        //y se lee por consola
+
+        console.log(sumar(5, 10));
+
+        //POR TECLADOOOOO YEAHHHH
+
+        //el parse Int es para convertir el string que devuelve el prompt a un numero 
+        // entero, parsefloat seria par decimal, debido a que todo lo que se lee por 
+        // teclado es por defecto un string, y para poder hacer operaciones matematicas
+        //necesitamos convertirlo a numero.
+
+        //POR CONSOLA EJEMPLOS
+        //let num1 = parseInt(prompt("Ingrese el primer numero: "));
+        //let num2 = parseInt(prompt("Ingrese el segundo numero: "));
+
+        //y luego se imprime por consola
+        //console.log(sumar(num1, num2));
+    </script>
+
+    <h1>EJ 3</h1>
+    <script>
+        //el mayor de dos numeros
+
+        function mayor(a, b) {
+            if (a > b){return a}
+            else{return b}
+        }
+
+        console.log(mayor(5, 10));
+
+        //de nuevo por teclado, usando parseInt para convertir el string a 
+        // numero entero y pasamos a consola que llama a la funcion con los valores
+
+        //let a = parseInt(prompt("Ingrese el primer numero: "));
+        //let b = parseInt(prompt("Ingrese el segundo numero: "));
+
+        //console.log(mayor(a, b));
+    </script>
+
+    <h1>EJ 4</h1>
+    <script>
+        //con un numero definido
+        //Descripción: Escribe una función que 
+        // reciba un número y devuelva "par" si es par o "impar" si es impar.
+
+        function esPar(a) {
+            if (a % 2 == 0) {return "Par"}
+            else {return "Impar"}
+        }
+        
+        console.log(esPar(4))
+        console.log(esPar(3))
+
+    </script>
+
+    <h1>EJ 5</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 6</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 7</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 8</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 9</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+        
+</body>
+</html>

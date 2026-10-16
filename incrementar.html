@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #numero {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>EJERCICIO INCREMENTAR</h1>
+
+    <P>
+<!--      <button onclick="alert('pulsado boton')">Incrementar</button>
+ alert es un mensaje en pantalla con intrucciones dentro, y se usan las
+comillas simples porque las dobles ya estan ocupadas en el onclick-->
+        <button onclick="incrementar()">Incrementar</button>
+        <span id="numero">0</span>
+    </P>
+
+    <script>
+        
+        const spanNumero = document.getElementById("numero");
+        //que hace que el span sea igual al elemento con id numero, 
+        // que es el span que contiene el numero a incrementar
+
+        function incrementar() {
+            //alert("pulsado boton incrementar");
+            spanNumero.textContent++;
+        }
+
+
+        //para sumar tenemos que usar si o si ++ si solo es un elemento
+        //porque + es para concatenar, y si es un string, lo que hace es 
+        // concatenar, asi que primero, en caso de querer añadir mas, es 
+        // convertir el string a numero con parseIntr
+    
+    </script>
+
+<!-- le vamos a dar un script al buttonpara que incremente el nbumero
+siendo que span es literalmente otro tipo de div que podemos dar estilo -->
+
+</body>
+</html>
