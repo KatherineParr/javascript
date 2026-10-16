@@ -98,16 +98,35 @@
 
     </script>
 
+    
+
     <h1>EJ 5</h1>
     <script>
-        //con un numero definido
+        //Descripción: Escribe una función que reciba un array de números 
+        // y devuelva la suma de todos sus elementos.
 
+        //NOTA PARA SELF, CONST ES CUANDO NO VAYAS A CAMBIAR LA variable
+        //LET ES CUANDO SE TENGA QUE CAMBIAR, DARA ERROR
+        //SI DECLARAS UNA COST Y TIENE QUE CAMBIAR
 
+        const numeros = [1, 2, 3, 4, 5]; 
+        
+
+        function sumaArray(numeros){
+            let suma = 0
+            numeros.forEach(numero => {
+                suma += numero
+            });
+            return suma
+        }
+
+        console.log(sumaArray(numeros))
     </script>
 
     <h1>EJ 6</h1>
     <script>
-        //con un numero definido
+        //Escribe una función que reciba un array de números 
+        //y devuelva el número mayor.
 
 
     </script>
