@@ -129,23 +129,34 @@
         //y devuelva el número mayor.
 
         const numeros1 = [1, 2, 3, 4, 5]; 
-        
+        //hay dos formas, la sencilla
 
-        function sumaArray(numeros){
-            let suma = 0
-            numeros.forEach(numero => {
-                suma += numero
-            });
-            return suma
+        function mayorArrayS(numeros){
+            //se declara una variable con valor del primer
+            //elemento del array asignado
+            let mayor = numeros[0];
+            //recorremos el array que se pasa con un for
+            for (let i = 1; i < numeros.length; i++) {
+                //si el elemento tal i es mayor que mayor (primer elemento
+                //de numeros)
+                if (numeros[i] > mayor) {
+                    //se le asigna ese valor a mayor
+                    mayor = numeros[i];
+                }
+            }   
+
+            //y el array se recorre completo hasta el final, viendo
+            //si otro elemento es mayor, si no lo es no hace nada
+            //y si lo es se le asigna, y devolvemos ese valor
+
+            return mayor;
         }
 
-        //MAYOR 
-        function mayor(a, b) {
-            if (a > b){return a}
-            else{return b}
-        }
+        console.log(mayorArray(numeros1))
 
-        console.log(sumaArray(numeros1))
+        //y la forma mas directa con MAth
+
+        console.log(mayorArray(numeros1))
 
     </script>
 
