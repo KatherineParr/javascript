@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Añadir event listener</h1>
+    <p>funcion que devuelva por consola un saludo 
+        añade a la funcion con add event listener al pulsar un boton una imagen
+        y un texto dentro de un parrafo
+        Modifica para que el evento de la imagen sea al pasar por arriba y no al pulsar
+        añade un enlace a otra pagina y añade el funcionalidad de saludo al pulsar el enlace 
+        
+    </p>
+
+    <!--(el ultimo teine que abrirse en otra pagina para que el console log lo recoga en la original
+        sin redirigir) -->
+
+    <script>
+        const boton4 = document.getElementById('boton4');
+        const container = document.getElementById('container');
+
+        boton4.addEventListener('click', leerEvento);
+        container.addEventListener('mouseover', leerEvento);
+
+        function leerEvento(event) {
+            //console.log("propiedades.del.evento", event);
+            console.log(event.type, event.target);
+            let elemento = event.target;
+            //elemento.remove();
+        }
+
+    </script>
+
+
+</body>
+</html>

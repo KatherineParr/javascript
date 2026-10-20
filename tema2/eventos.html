@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+    <h2>Tres formas de crear</h2>
+    <ol>
+        <li>evento en line: <button onclick="console.log('pulsando boton 1')">boton1</button></li>
+        <li>en la propiedad del elemento: <button id="boton2">boton2</button></li>
+        <li>agregando event lisener <button id="boton3">boton3</button></li>
+    </ol>
+
+    <script>
+        const boton2 = document.getElementById('boton2')
+        boton2.onclick = () => console.log('pulsando boton 2')
+
+        const boton3 = document.getElementById('boton3')
+        boton3.addEventListener('click', pulsar)
+
+        function pulsar(boton3){
+            console.log('pulsando boton 3')
+        }
+
+        boton3.addEventListener('click', () => console.log('nueva funcion en boton3'))
+
+    </script>
+
+
+
+
+    <h2>El objeto Event</h2>
+    <button id="boton4">BotEn que lee el evento</button>
+    <div id="container">Pasa el ratgn por encima</div>
+    <p>Al pulsar el boton 4 se muestra por consola las propiedades del evento</p>
+    <script>
+        const boton4 = document.getElementById('boton4');
+        const container = document.getElementById('container');
+
+        boton4.addEventListener('click', leerEvento);
+        container.addEventListener('mouseover', leerEvento);
+
+        function leerEvento(event) {
+            //console.log("propiedades.del.evento", event);
+            console.log(event.type, event.target);
+            let elemento = event.target;
+            //elemento.remove();
+        }
+
+    </script>
+</body>
+</html>
