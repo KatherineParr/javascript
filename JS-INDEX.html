@@ -152,29 +152,173 @@
             return mayor;
         }
 
-        console.log(mayorArray(numeros1))
+        console.log(mayorArrayS(numeros1))
 
-        //y la forma mas directa con MAth
+        //y la forma mas directa con MAth max, que saca el maximo
 
-        console.log(mayorArray(numeros1))
+        function mayorArrayM(numeros){
+            return Math.max(...numeros)
+            //hay que usar los dos .., spread, porque lo que hace es 
+            // abrir el array y convertirlo a numeros sueltos
+        }
+
+        
+
+        console.log(mayorArrayM(numeros1))
 
     </script>
 
     <h1>EJ 7</h1>
     <script>
-        //con un numero definido
+        //Crea un objeto literal que represente un libro con propiedades como título, 
+        //autor y número de páginas. Luego, escribe una función que reciba este objeto 
+        //como argumento y muestre la información del libro en un formato legible.
+        
+        //se cera primero una variable
+        const libro = {
+            titulo: "El Señor de los Anillos",
+            autor: "J.R.R. Tolkien",
+            paginas: 117
+        }
 
+        //y creamoc la funcion que recibe ese objeto como argumento
+        function leer(libro){
+            //para leerlo, se puede hacer como el clasico en java
+            //directamente con un return
+            return "Titulo: " + libro.titulo + ", autor: " + libro.autor + ", paginas: " + libro.paginas
+        }
 
     </script>
 
     <h1>EJ 8</h1>
+    <script>
+        //Crea un array de objetos literales, 
+        //donde cada objeto representa un producto con propiedades como 
+        //nombre, precio y cantidad en stock. Escribe una función que reciba 
+        //este array y muestre el nombre y el precio de cada producto.
+
+        //primero creamos el array de objetos
+        //recuerda, objeto es nombre {}, dentro de eso, propiedades (precio) : valor(7)
+        //para un array de objetos tenemos que usaar [] que es de array, y luego la misma
+        //formula
+        let productos = [
+            {
+                nombre: "Teclado",
+                precio: 25,
+                stock: 10
+            },
+            {
+                nombre: "Ratón",
+                precio: 15,
+                stock: 20
+            },
+            {
+                nombre: "Monitor",
+                precio: 150,
+                stock: 5
+            }
+        ];
+
+        function mostrar(productos) {
+            //se cera una variable con texto vacio para poder
+            //almacenar el resultado
+            let resultado = "";
+
+            //recorremos con un foreach que recorre todos los elementos del array
+            //y añade a resultado nombre y el nombre de cada elemento y lo mismo con precio
+            productos.forEach(producto => {
+                resultado += "Nombre: " + producto.nombre
+                        + ", Precio: " + producto.precio + "\n";
+            });
+
+            //al salir devolvemos el recultado directamente
+            return resultado;
+        }
+            
+
+
+        //profe:
+
+        /* function mostrarInventario(productos) {
+            let resultado = "";
+            for (const producto of productos) {
+                resultado += "Nombre: " + producto.nombre + ", Precio: " + producto.precio + "\n";
+            }
+        return resultado;
+        }       
+
+
+        console.log(mostrarInventario(productos)); */
+
+    </script>
+
+    <h1>EJ 9</h1>
+    <script>
+        //Usando el array de productos del ejercicio anterior, 
+        // escribe una función que reciba el array y un precio máximo, y 
+        // devuelva un nuevo array con solo los productos cuyo precio sea 
+        // menor o igual al precio máximo.
+
+
+    </script>
+
+    <h1>EJ 10</h1>
     <script>
         //con un numero definido
 
 
     </script>
 
-    <h1>EJ 9</h1>
+    <h1>EJ 11</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 12</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 13</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 14</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 15</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 16</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 17</h1>
+    <script>
+        //con un numero definido
+
+
+    </script>
+
+    <h1>EJ 18</h1>
     <script>
         //con un numero definido
 
