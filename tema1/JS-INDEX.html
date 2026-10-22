@@ -258,14 +258,56 @@
         // escribe una función que reciba el array y un precio máximo, y 
         // devuelva un nuevo array con solo los productos cuyo precio sea 
         // menor o igual al precio máximo.
+    
 
+        function precioM (productos, precioMax){
+            //hay que hacer lo mismo que el ejercicio anterior, declarar una vatiable
+            //vacia a rellenar con el nuevo array de precios
+            let resultado = [];
+
+            //recorremos con un foreach que recorre todos los elementos del array
+            //y por cada compara si es menor o igual que el precio maximo
+            productos.forEach(producto => {
+                if (producto.precio <= precioMax) {
+                    resultado.push(producto); //PUSH AÑADE EL OBJETO COMPLETO SI NO SE RESTRINGE, 
+                    //AL FINAL DE UN ARRAY
+                }
+            });
+
+            //al salir devolvemos el recultado directamente
+            return resultado;
+        }
+
+        console.log(precioM(productos, 30))
 
     </script>
 
     <h1>EJ 10</h1>
     <script>
-        //con un numero definido
+        //Usando el array de productos del ejercicio 8, escribe una 
+        // función que calcule el valor total del inventario 
+        // (precio * cantidad en stock para cada producto, y 
+        // luego la suma de todos los productos).
 
+        function valores (productos){
+            let valores = []
+
+            productos.forEach(producto => {
+                valores.push(producto.precio * producto.stock)
+            })
+
+            let total = valores.reduce((acumulador, valor) => {
+                return acumulador + valor
+            }, 0)
+            //explicacion de reduce
+            //acumulador - Guarda la suma que llevas hasta ahora.
+            //numero - Es el número que estamos leyendo del array en esta vuelta.
+            // , 0 - Es el valor inicial del acumulador. Empezamos la suma desde cero.
+
+            return total
+        }
+
+        console.log(valores(productos))
 
     </script>
 
