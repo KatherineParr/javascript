@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>target vs current target</h1>
+    <section>
+        <h1>seccion</h1>
+        <article>
+            <h2>article</h2>
+            <div>
+                <h3>div</h3>
+                <button>button</button>
+            </div>
+        </article>
+    </section>
+
+    <p>Pulsa en cualquier lugar de este parrafo para <strong>eliminar</strong> todo el parrafo</p>
+
+    <script>
+        document.querySelector('section').addEventListener('click', (event) =>{
+            console.log("objeto que recibe el evento: ", event.target) //en lo que realmente se hace click
+            console.log("objeto que recibe el event listener: ", event.currentTarget) //contra el que referencia
+        })
+
+        document.querySelector('p').addEventListener('clck', (event) => event.target.remove()) 
+        //para que se borre todo el parrafo, pero si se hace click dentro de elminar (el strong)
+        //se elimina solo esa seccion
+
+        //para solucionarlo usamos en vez current target
+        document.querySelector('p').addEventListener('clck', (event) => event.currentTarget.remove()) 
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Propagacion</h1>
+    <section>
+        <h1>seccion</h1>
+        <article>
+            <h2>article</h2>
+            <div>
+                <h3>div</h3>
+                <button>button</button>
+            </div>
+        </article>
+    </section>
+
+
+    <script>
+        //para que te diga si haces click dentro de alguna seccion, que tag es por consola
+        //el tercer parametro del event listener
+        //document.querySelector('section').addEventListener('click', (event) => console.log(event.target.tagName))
+
+        //podemos hacer para que en vez salga un mensaje al pulsar
+        //te saldra el mensaje, por ejemplo, en el button, te salen todos los mensajes de arriba
+        //(la propagacion por defecto es hacia arriba) sale boton, div, articulo
+        //si les ponemos true al final cambia el orden en consola, salen primero por orden los que tengan true
+        //y luego el orden
+        //si todos son true te salen al reves
+        document.querySelector('section').addEventListener('click', (event) => console.log("accion del section"))
+        document.querySelector('article').addEventListener('click', (event) => console.log("accion del article"))
+        document.querySelector('div').addEventListener('click', (event) => console.log("accion del div"))
+        //document.querySelector('button').addEventListener('click', (event) => console.log("accion del button"))
+
+        //si se pone stop progagation, aunque le hagas click en klos de arriba, no sale el botobn
+        document.querySelector('button').addEventListener('click', (event) => {console.log("accion del button")
+            event.stopPropagation()
+
+        })
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

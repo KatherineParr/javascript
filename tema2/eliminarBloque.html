@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .like {background-color: #ccf;}
+        .delete {background-color: #fcc;}
+    </style>
+</head>
+<body>
+    <h1>Eliminar desde boton</h1>
+    <section>
+        <article>
+            <h2>Mi articulo</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit laborum porro aperiam architecto perspiciatis quod tempore repellendus error natus nulla voluptas deserunt odit ea repudiandae odio, excepturi impedit eaque perferendis.</p>
+            <div>
+                <button class="like">Me gusta <span class = "like">0</span></button>
+                <button class="delete">Eliminar</button>
+            </div>
+        </article>
+        <article>
+            <h2>Mi articulo 2</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit laborum porro aperiam architecto perspiciatis quod tempore repellendus error natus nulla voluptas deserunt odit ea repudiandae odio, excepturi impedit eaque perferendis.</p>
+            <div>
+                <button class="like">Me gusta <span class = "like">0</span></button>
+                
+                <button class="delete">Eliminar</button>
+            </div>
+        </article>
+    </section>
+
+    <script>
+
+        const btnDeleteList = document.querySelectorAll('button.delete')
+        btnDeleteList.forEach(btn => btn.addEventListener('click', deleteArticle));
+
+
+        function deleteArticle(event){
+            //se va propagando hacia arriba hasta encontrar el articulo
+            //y entonces eliminarlo
+            let article = event.currentTarget.closest('article')
+            article.remove()
+        }
+
+        //PARA EL ME GUSTA
+        const btnLikeList = document.querySelectorAll('button.like')
+
+        btnLikeList.forEach(btn => btn.addEventListener('click', incrementarLike))
+
+        function incrementarLike(event){
+            let article = event.currentTarget.closest('article')
+            //una vez dentro hay que buscar el span clase like
+            let spanLike /*solo dentro del articulo*/ = article.querySelector('span.like')
+            spanLike.textContent++ 
+        }
+
+    </script>
+
+</body>
+</html>

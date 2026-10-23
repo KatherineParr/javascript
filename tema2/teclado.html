@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tecladp</h1>
+    <h2>Tecla pulsada: <span id = "key-press"></span></h2>
+    <h2>Tecla pulsada (codigo): <span id = "key-press-code"></span></h2>
+
+    <p>Escribe tu nombre
+        <input type="text" name="nombre">
+    </p>
+
+    <script>
+        const spanKeyPress /*nombre tipo funcion*/ = document.getElementById('key-press')
+        const spanKeyPressCode /*nombre tipo funcion*/ = document.getElementById('key-press-code')
+        //en toda la ventana del navegador, si se pulses una tecla
+        //se muestre
+        window.addEventListener('keydown', (event) =>{
+
+            spanKeyPress.textContent = event.key;
+
+            //tambien lo podemos ver segun el codigo
+            spanKeyPressCode.textContent = event.keyCode;
+
+            //te dice si cuando se ha pulsado una tecla, se presiono con control o alt
+            //(hay varios codigos de teclas especificas)
+            console.log("Control:", event.ctrlKey, "Alt:", event.altKey)
+
+            //que muestre  si es igual al mismo tiempo alt x
+            if (event.key === "x" && event.altKey){
+                spanKeyPress.textContent = ('atajo de teclado personalizado')
+            }
+
+            //tambien puedes poner antes del if en este caso:
+                //event.preventDefault()
+
+            //y deberia (DEBERIA)  prevenir atajos comunes en navegadores
+        })
+    
+        //que al hacer el input (elementS devuelve un array, y si estamos seguros que es solo uno
+        //ponemos al final 0, que searia tener en cuanta solo el primer elemento)
+        const inputNombre = document.getElementsByName('nombre')[0]
+
+        //cuando cambie el contenido, no permite minuscula, escribe
+        inputNombre.addEventListener('change' /*tambien se puede poner lo de key*/, (event) =>{
+            inputNombre.value = inputNombre.value.toUpperCase()
+        })
+
+    </script>
+</body>
+</html>
