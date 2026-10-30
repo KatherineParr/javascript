@@ -8,7 +8,7 @@ const botonInsertar = document.getElementById('insertar')
 const bodyTabla = document.getElementById('tabla-body')
 
 //segunda
-const subtotal = document.getElementById('numSub')
+let subtotal = document.getElementById('numSub')
 const impuestos = document.getElementById('numImp')
 const total = document.getElementById('numTotal')
 
@@ -39,6 +39,9 @@ function insertarProductoDatos(concepto, cantidad, precio){
     let cantidadDatos = document.createElement('td')
     let precioDatos = document.createElement('td')
     let totalDatos = document.createElement('td')
+    //se le añade al crear el elemento una clse para poder ser llamado o locali
+    //zado despues
+    totalDatos.classList.add('precioTotal')
     let eliminarSecc = document.createElement('td')
 
     //tenemos que añadir luego todo los apends correspondientes
@@ -69,17 +72,28 @@ function insertarProductoDatos(concepto, cantidad, precio){
     //el text conent es porque lo demas es referencia y esto le deice pa añadir los datos
     eliminarSecc.textContent = "X"
 
-    //y luego llamamos a la funcon de recalculo total
-    //????
+    //llamamos a la otra funcion para recalcular el subtotal
+    recalcularTotales()
 
 }
 
-
-
 function recalcularTotales(){
-    //para calcular leer todas las columnas 
-    // //tipo propagacion o con clases y tal
+    //para calcular leer todas las columnas
+        listaPrecio = bodyTabla.querySelectorAll('.precioTotal')
+    //sacamos todos con la clase esa
+
+    //pa convertir un elemento en array tres puntos y corchetes
+    let precios = [...listaPrecio].map(elemento => 
+        parseFloat(elemento.textContent)
+    );
+
+    let total = precios.reduce((acumulador, valor) => {
+                return acumulador + valor
+            }, 0)
     
+    //elementos tipo td y tal asi no se pueden modificar directamente usa text content par contenido
+    
+    subtotal.textContent = total.toFixed(2)
 
 }
 

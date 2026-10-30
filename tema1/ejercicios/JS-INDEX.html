@@ -295,6 +295,7 @@
             productos.forEach(producto => {
                 valores.push(producto.precio * producto.stock)
             })
+            //recorremos el array multiplicando los valores
 
             let total = valores.reduce((acumulador, valor) => {
                 return acumulador + valor

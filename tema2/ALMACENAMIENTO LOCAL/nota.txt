@@ -1,0 +1,185 @@
+Almacenamiento local (localStorage y sessionStorage)
+Requisitos de finalización
+2. Uso de LocalStorage y SessionStorage
+2.4. Operaciones CRUD (Create, Read, Update, Delete)
+
+
+
+A) Datos Simples (Strings, Números, Booleanos)
+// 1. Create / Update (Guardar o sobrescribir)
+localStorage.setItem('tema', 'oscuro');
+
+// 2. Check Existence (Comprobar si existe)
+const existeTema = localStorage.getItem('tema') !== null; // true
+
+// 3. Read (Leer)
+const tema = localStorage.getItem('tema'); // Devuelve "oscuro"
+
+// 4. Delete (Eliminar una clave específica)
+localStorage.removeItem('tema'); // Elimina solo la clave 'tema'
+
+// 5. Clear (Vaciar todo el almacenamiento del origen)
+localStorage.clear(); // Elimina todas las claves guardadas en este dominio
+B) Estructuras Complejas (Objetos y Arrays)
+// --- OBJETOS ---
+const perfil = { id: 1, nombre: 'Ana', rol: 'admin' };
+
+// Create
+localStorage.setItem('perfil', JSON.stringify(perfil));
+
+// Read con comprobación previa
+const rawPerfil = localStorage.getItem('perfil');
+if (rawPerfil !== null) {
+  const perfilGuardado = JSON.parse(rawPerfil);
+  
+  // Update parcial
+  perfilGuardado.rol = 'editor';
+  localStorage.setItem('perfil', JSON.stringify(perfilGuardado));
+}
+
+// Delete
+localStorage.removeItem('perfil'); // Elimina únicamente el objeto perfil
+
+
+// --- ARRAYS ---
+const productos = ['Prod_A', 'Prod_B'];
+
+// Create
+localStorage.setItem('carrito', JSON.stringify(productos));
+
+// Read
+const rawCarrito = localStorage.getItem('carrito');
+const carritoGuardado = rawCarrito ? JSON.parse(rawCarrito) : [];
+
+// Update (Agregar elemento al array)
+carritoGuardado.push('Prod_C');
+localStorage.setItem('carrito', JSON.stringify(carritoGuardado));
+
+// Update/Delete interno (Eliminar un elemento dentro del array)
+const carritoFiltrado = carritoGuardado.filter(item => item !== 'Prod_B');
+localStorage.setItem('carrito', JSON.stringify(carritoFiltrado));
+
+// Delete completo de la clave
+localStorage.removeItem('carrito');
+
+
+
+
+
+2.5. Buenas Prácticas
+Control de Errores con try...catch: Envuelve la lectura y escritura en bloques try...catch. Esto evita que la aplicación falle si JSON.parse recibe JSON corrupto o si setItem lanza un QuotaExceededError al exceder el límite de almacenamiento.
+Preferir removeItem() sobre clear(): En aplicaciones reales, utiliza removeItem('clave') para eliminar datos específicos. El uso de clear() debe reservarse para cierres de sesión globales o reseteos completos, ya que borra indiscriminadamente todos los datos del origen (incluyendo los guardados por otros scripts o librerías del mismo dominio).
+Verificación explícita contra null: Comprueba siempre si getItem() devuelve null antes de procesar o intentar parsear los datos recuperados.
+Expiración Manual (TTL - Time to Live): Dado que localStorage no expira automáticamente, guarda el valor envuelto en un objeto junto con un timestamp de caducidad (Date.now() + ttl) y elimínalo mediante removeItem() al leer si ya ha caducado.
+Ejemplo de Estructura Recomendada:
+try {
+  // 1. Escritura segura con manejo de cuota
+  localStorage.setItem('config', JSON.stringify(datos));
+} catch (error) {
+  if (error.name === 'QuotaExceededError') {
+    console.error('Error: Almacenamiento lleno');
+  }
+}
+
+// 2. Lectura y comprobación explícita contra null
+const rawConfig = localStorage.getItem('config');
+if (rawConfig !== null) {
+  try {
+    const config = JSON.parse(rawConfig);
+  } catch (e) {
+    console.error('Error: El contenido no es un JSON válido');
+  }
+}
+
+
+
+2.6. Ejemplos Prácticos Completos
+Ejemplo 1: Módulo Utilitario Reutilizable (Storage Wrapper)
+Centraliza las lecturas, escrituras, comprobaciones de existencia y el manejo de excepciones en un único objeto:
+
+const storage = {
+  guardar(clave, valor) {
+    try {
+      localStorage.setItem(clave, JSON.stringify(valor));
+    } catch (error) {
+      if (error.name === 'QuotaExceededError') {
+        console.error('Límite de almacenamiento excedido');
+      } else {
+        console.error('Error al guardar:', error);
+      }
+    }
+  },
+
+  leer(clave, valorPorDefecto = null) {
+    try {
+      const item = localStorage.getItem(clave);
+      return item !== null ? JSON.parse(item) : valorPorDefecto;
+    } catch (error) {
+      console.error('Error al leer clave:', error);
+      return valorPorDefecto;
+    }
+  },
+
+  existe(clave) {
+    return localStorage.getItem(clave) !== null;
+  },
+
+  eliminar(clave) {
+    localStorage.removeItem(clave);
+  },
+
+  vaciarTodo() {
+    localStorage.clear();
+  }
+};
+Ejemplo 2: Expiración por Tiempo (TTL) usando removeItem()
+Implementa una caducidad automática ("lazy expiry") comprobando el tiempo de vida al leer los datos:
+
+function setConTTL(clave, valor, ttlEnMs) {
+  const item = {
+    valor: valor,
+    expiracion: Date.now() + ttlEnMs
+  };
+  localStorage.setItem(clave, JSON.stringify(item));
+}
+
+function getConTTL(clave) {
+  const itemStr = localStorage.getItem(clave);
+  
+  // Si no existe la clave, retorna null
+  if (itemStr === null) return null;
+
+  try {
+    const item = JSON.parse(itemStr);
+    
+    // Si ha superado el tiempo de vida, se elimina y retorna null
+    if (Date.now() > item.expiracion) {
+      localStorage.removeItem(clave);
+      return null;
+    }
+    
+    return item.valor;
+  } catch (e) {
+    return null;
+  }
+}
+Ejemplo 3: Auto-guardado de Formularios y Limpieza al Enviar (sessionStorage)
+Guarda borradores mientras la pestaña está abierta y elimina la clave al enviar el formulario:
+
+const inputMensaje = document.getElementById('mensaje');
+const formulario = document.getElementById('miFormulario');
+
+// Restaurar borrador al recargar si existe la clave
+if (sessionStorage.getItem('borradorMensaje') !== null) {
+  inputMensaje.value = sessionStorage.getItem('borradorMensaje');
+}
+
+// Guardar borrador progresivamente
+inputMensaje?.addEventListener('input', (e) => {
+  sessionStorage.setItem('borradorMensaje', e.target.value);
+});
+
+// Eliminar borrador específico al enviar con éxito
+formulario?.addEventListener('submit', () => {
+  sessionStorage.removeItem('borradorMensaje');
+});
