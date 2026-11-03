@@ -1,0 +1,143 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 14px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #005a9c;
+}
+
+h2 {
+    color: #005a9c;
+    font-size: 1.3em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* formulario: cada div con el label arriba y todo en una fila */
+#formProducto {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+#formProducto div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* el concepto es mas ancho que los otros */
+#formProducto div:first-child {
+    flex: 2;
+}
+
+label {
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#insertar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 11px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* radios de impuestos centrados */
+#btnImpuesto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: #f4f4f4;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+#btnImpuesto label {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #005a9c;
+    color: white;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+/* cantidad, precio unitario y precio total a la derecha y con letra de numeros */
+tbody td:nth-child(2),
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+    text-align: right;
+    font-family: "Courier New", monospace;
+}
+
+tbody td:nth-child(5) {
+    text-align: center;
+}
+
+/* boton eliminar redondo y rojo */
+.btnEliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* resumen */
+tfoot td {
+    background-color: #efefef;
+}
+
+tfoot td:first-child {
+    font-weight: bold;
+}
+
+tfoot td:nth-child(2) {
+    font-family: "Courier New", monospace;
+}
+
+#trTotal td {
+    background-color: #dce6f1;
+    font-weight: bold;
+    font-size: 1.1em;
+}

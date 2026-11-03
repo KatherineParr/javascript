@@ -15,6 +15,7 @@ const total = document.getElementById('numTotal')
 //tercera
 const tasaRadios = document.getElementsByName('impuesto')
 
+
 function insertarFormulario(){ //esta es la main de recoger datos e insertarlos
  //leer datos del formularios
     let concepto = conceptoInput.value
@@ -79,8 +80,13 @@ function insertarProductoDatos(concepto, cantidad, precio){
 
 function recalcularTotales(){
     //para calcular leer todas las columnas
-        listaPrecio = bodyTabla.querySelectorAll('.precioTotal')
+    let listaPrecio = bodyTabla.querySelectorAll('.precioTotal')
     //sacamos todos con la clase esa
+    
+
+
+    //○ Debe calcular el Subtotal sumando el "Precio Total" de todas las filas de
+    //la tabla.
 
     //pa convertir un elemento en array tres puntos y corchetes
     let precios = [...listaPrecio].map(elemento => 
@@ -95,15 +101,41 @@ function recalcularTotales(){
     
     subtotal.textContent = total.toFixed(2)
 
+
+    
+    //○ Debe calcular los Impuestos multiplicando el "Subtotal" por la tasa de
+    //impuestos actualmente seleccionada.
+
+
+
+
+    //○ Debe calcular el TOTAL sumando el "Subtotal" y los "Impuestos".
 }
 
+/* Cambiar Tasa de Impuestos:
+○ Al hacer clic en cualquiera de las opciones de tasa 5%, 10%, 15% o
+20%):
+○ La aplicación debe actualizar la tasa activa.
+○ El campo "Tasa" en el resumen debe mostrar el nuevo porcentaje.
+○ Se debe llamar a la función de recálculo total para actualizar los
+"Impuestos" y el "TOTAL" con el nuevo porcentaje. */
 
 
 function cambiarTasa(){
 
+    //seleccionamos todos los elementos con nombre name
+    
+
+    //
+
 }
 
 
+/* Eliminar Producto:
+○ Al hacer clic en el botón de eliminar producto de cualquier fila de
+producto:
+○ Esa fila (<tr>) específica debe ser eliminada de la tabla.
+○ Se debe llamar a la función de recálculo total. */
 
 function eliminarProducto(){
 
