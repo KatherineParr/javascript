@@ -295,7 +295,6 @@
             productos.forEach(producto => {
                 valores.push(producto.precio * producto.stock)
             })
-            //recorremos el array multiplicando los valores
 
             let total = valores.reduce((acumulador, valor) => {
                 return acumulador + valor
@@ -321,7 +320,7 @@
         const pares = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
         function filtrar (array){
-            array.filter(x => x % 2 === 0);
+            return array.filter(x => x % 2 === 0);
         }
 
         console.log(filtrar(pares))
@@ -330,14 +329,24 @@
 
     <h1>EJ 12</h1>
     <script>
-        //con un numero definido
+        //: Escribe una función que reciba un array de números y 
+        // devuelva un nuevo array donde cada número esté duplicado. 
+        // Utiliza el método map.
 
+        const listaDuplicar = [1, 2, 3, 4]
+
+        function duplicar(array){
+            return nuevoArray = array.map(elemento => elemento * 2);
+        }
+
+        console.log(duplicar(listaDuplicar))
 
     </script>
 
     <h1>EJ 13</h1>
     <script>
-        //con un numero definido
+        //Escribe una función que reciba un array y utilice 
+        //forEach para imprimir cada elemento en la consola.
 
 
     </script>
