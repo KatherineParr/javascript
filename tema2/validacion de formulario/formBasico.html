@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *:user-invalid{
+            background-color: palevioletred;
+        }
+
+        *:user-valid{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario Basico</h1>  
+    <form action="" id="form-basico">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" required pattern="\w{3,20}">
+        </p>
+        <p>
+            <label for="age"></label>
+            <input type="number" name="age" id="age" min="18" max="99">
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <button type="submit">Enviar</button>
+        </p>
+    </form>
+</body>
+<script>
+    const form = document.getElementById('form-basico');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        //el num tiene que ser par
+        const formData = new FormData(form)
+
+        //sacar edad
+        if(FormData.get('age')%2 == 0){ç
+            console.log('es par')
+            //si lo queremos mandar cuando es par
+            form.submit()
+        }else{
+            console.log('es impar')
+            //que no se envie
+            //tipo mostrar el error con custom
+        }
+    })
+</script>
+</html>

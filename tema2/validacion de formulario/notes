@@ -1,0 +1,5 @@
+preferible input:user-valid a solo input:valid al usar css
+
+para poner cosas tipo valor individual, seria cada individual tipo
+son que coincidad con esa exprecion aunque se puede resumir con cosas como /d
+[0-9][0-9][a-z]

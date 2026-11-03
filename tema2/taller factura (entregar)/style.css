@@ -1,6 +1,4 @@
 body {
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 14px;
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
@@ -32,12 +30,6 @@ hr {
 #formProducto div {
     display: flex;
     flex-direction: column;
-    flex: 1;
-}
-
-/* el concepto es mas ancho que los otros */
-#formProducto div:first-child {
-    flex: 2;
 }
 
 label {
@@ -95,16 +87,13 @@ th {
     text-align: left;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #f4f4f4;
-}
+
 
 /* cantidad, precio unitario y precio total a la derecha y con letra de numeros */
 tbody td:nth-child(2),
 tbody td:nth-child(3),
 tbody td:nth-child(4) {
     text-align: right;
-    font-family: "Courier New", monospace;
 }
 
 tbody td:nth-child(5) {
@@ -130,10 +119,6 @@ tfoot td {
 
 tfoot td:first-child {
     font-weight: bold;
-}
-
-tfoot td:nth-child(2) {
-    font-family: "Courier New", monospace;
 }
 
 #trTotal td {

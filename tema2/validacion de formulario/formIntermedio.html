@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Formulario con checkbox, radio y select</h1>  
+    <form action="" id="form-intermedio">
+        <h2>Indica si eres socio</h2>
+        <p>
+            <input type="checkbox" name="member" id="member"> 
+            //el id en input related con el for en label es el que te reconoce al marcar en el nombre
+            <label for="member">socio</label>
+        </p>
+    </form>
+</body>
+<script>
+    const form = document.getElementById('form-intermedio')
+
+    const formData = new FormData(form)
+</script>
+</html>
