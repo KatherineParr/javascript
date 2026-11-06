@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        input:checked{
+            border: 2px solid blue;
+        }
 
     </style>
 </head>
@@ -13,15 +16,89 @@
     <form action="" id="form-intermedio">
         <h2>Indica si eres socio</h2>
         <p>
-            <input type="checkbox" name="member" id="member"> 
+            <input type="checkbox" name="member" id="member" value="si"> 
             //el id en input related con el for en label es el que te reconoce al marcar en el nombre
             <label for="member">socio</label>
         </p>
+        <p>
+            Elige tu modulo preferido:
+            <input type="radio" name="module" id="dew" value="dew" required>
+            <label for="dew">Dew</label>
+            |
+            <input type="radio" name="module" id="dsw" value="dsw">
+            <label for="dsw">DSW</label>
+            |
+            <input type="radio" name="module" id="dpl" value="dpl">
+            <label for="dpl">Dpl</label>
+            |
+            <input type="radio" name="module" id="python" value="python">
+            <label for="python">Python</label>
+        </p>
+        <p>
+            Que es lo que mas de gusta del modulo?:
+            <ul>
+                <li>
+                    <input type="checkbox" name="like" id="like-teacher" value="teacher">
+                    <label for="like-teacher">Profesor</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="like" id="like-content" value="content">
+                    <label for="like-content">Contenido</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="like" id="like-copy" value="copy">
+                    <label for="like-copy">Deja copiar</label>
+                </li>
+            </ul>
+        </p>
+        <p>
+            <label for="curso">En que curso estas</label>
+            <select name="curso" id="curso">
+                <option value="DEW">desarrollo en entorno cliente</option>
+                <option value="DSW">Desarrolo entorno servidor</option>
+                <option value="DOR">Diseño web</option>
+            </select>
+        </p>
+        <p>
+            Documwento:
+            <input type="file" name="documento" id="" multiple>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quos corporis suscipit ad ipsa, repudiandae sed totam ipsam laudantium recusandae non nobis assumenda alias rerum obcaecati maiores quisquam cupiditate temporibus!</p>
     </form>
 </body>
 <script>
     const form = document.getElementById('form-intermedio')
 
-    const formData = new FormData(form)
+    // const formData = new FormData(form) esto te coge los datos vacios, hay que lanzarlas despues de crear el form
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const formData = new FormData(form)
+        //si no eres miembro no puedes
+        const likes = formData.getAll('like[]')
+
+        console.log(likes)
+
+        const document = formData.get('document')
+
+        if (!formData.get('member')) {
+            alert('tienes que ser socio para continuar')
+            return
+        }
+        
+        
+        if (likes.length>0){
+            alert("debes elegir algun like")
+            return
+        }
+        
+        form.submit()
+        
+    })
+
+
 </script>
 </html>

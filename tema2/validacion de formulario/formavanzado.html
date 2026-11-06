@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:user-invalid{
+            border: 2px solid red;
+        }
+        input:user-valid{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <p>
+            <label for="pass1">elige contraseña</label>
+            <input type="text" name="pass1" id="pass1" required minlength="3">
+        </p>
+        <p>
+            <label for="pass2">elige contraseña</label>
+            <input type="text" name="pass2" id="pass2" required minlength="3">
+        </p>
+        <p>
+
+        </p>
+    </form>
+</body>
+
+<script>
+    const inputPass1 = document.getElementById('pass1')
+    const inputPass2 = document.getElementById('pass2')
+    function checkPass(){
+        if (inputPass1.value == inputPass2.value){
+            inputPass2.setCustomValidity("")
+        }else{
+            inputPass2.setCustomValidity("No coinciden las contraseñas")
+        }
+    }
+
+    inputPass2.addEventListener('keyup', checkPass)
+    inputPass1.addEventListener('keyup', checkPass)
+</script>
+</html>
