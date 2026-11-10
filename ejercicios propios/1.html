@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ejercicios arrays</h1>
+
+    <script>
+        const alumnos = [
+            { nombre: "Ana", notas: [7, 8, 9] },
+            { nombre: "Luis", notas: [4, 5, 3] },
+            { nombre: "Marta", notas: [10, 6, 8] },
+            { nombre: "Pedro", notas: [] }
+        ];
+
+
+        //media(notas): devuelve la media de un array de notas, y 0 si está vacío 
+        // (usa reduce, y piensa por qué hay que controlar el vacío).
+
+        //extrae solo las notas
+        const notas = alumnos.map(p => p.notas);
+        console.log(notas)
+
+        function media(notas){
+
+            
+
+            
+        }
+
+        console.log(media(notas))
+
+        //aprobados(alumnos): devuelve un array solo con los nombres de los alumnos 
+        // cuya media sea 5 o más (encadena filter y map, y reutiliza media).
+        function aprobados(alumnos){
+
+        }
+
+
+
+        //mejorAlumno(alumnos): devuelve el objeto del alumno con la media más alta, 
+        // sin usar sort.
+        function mejorAlumno(alumnos){
+
+        }
+
+
+        //Reto: agruparPorResultado(alumnos) que devuelva un objeto como 
+        // { aprobados: ["Ana", "Marta"], suspensos: ["Luis", "Pedro"] }.
+        function agruparPorResultado(alumnos){
+
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
